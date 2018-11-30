@@ -1,0 +1,47 @@
+
+
+
+@mixin font-stack ($fam, $size, $weight){
+    font: {
+        font-family: $fam;
+        size: $size;
+        weight: $weight;
+    }
+    
+}
+@mixin fonts {
+    font: {
+        family: Arial;
+        size: 2rem;
+        weight: 900;
+    }
+}
+
+@mixin med-br{
+    @media screen and (min-width: $breakpt-small){
+        @content;
+    }
+    
+}
+
+
+
+@mixin bp($point) {
+  
+   
+  $bp-small: "(min-width: #{$breakpoint-small}) and (max-width: #{$breakpoint-med - 1px})";
+  $bp-med: "(min-width: #{$breakpoint-med}) and (max-width: #{$breakpoint-lrg - 1px})";
+ $bp-lg: "all and (min-width:1401px)";
+    
+
+  @if $point == large1 {
+    @media #{$bp-lg} { @content; }
+  }
+  @else if $point == med {
+    @media #{$bp-med} { @content; }
+  }
+  @else if $point == small {
+    @media #{$bp-small}  { @content; }
+  }
+
+}
